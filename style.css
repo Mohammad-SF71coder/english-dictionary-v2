@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IM+Fell+English+SC&display=swap');
+
+
+*{
+    box-sizing: border-box;
+}
+
+
+body{
+    margin: 0;
+    font-family: "IM Fell English SC", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    height: 100vh;
+    background: radial-gradient(circle at top ,#574130, #382a1d, #1e140d);
+    background-size: cover;
+}
+
+.input-container{
+    max-width: 400px;
+    min-width: 340px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 150px;
+
+}
+.input-container p{
+    font-size: 30px;
+    color: #bd9b50;
+    text-shadow: 1px 1px 1px #e2bd6d,
+                -1px -1px 1px #000;
+}
+
+.input-container .input{
+    width: 90%;
+    height: 40px;
+    border-radius: 2px;
+    border: none;
+    background-color: #bd9b50;
+    box-shadow: 1px 1px 1px #000,
+                -1px -1px 1px #bd9b50;
+    padding: 10px;
+    outline: none;
+    font-size:25px;
+    color:#1e140d;
+    font-family: "IM Fell English SC", serif;
+}
+
+/* /////////////////////////////////////////////////////////////// */
+
+.book{
+    position: relative;
+    perspective: 1500px;
+    width: 450px;
+    height: 600px;
+    align-items: center;
+    text-align: center;
+    top: 850px;
+    right: 0;
+    display: none;
+}
+
+.page{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 5s ease;
+    transform-origin: left center;
+    padding: 0;
+}
+
+.front, .back{
+    position: absolute;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px ;
+}
+
+.front{
+    background-color: #ddcd91;
+    border-left: 1px solid #bd9b50;
+}
+
+.back{
+    border-right: 1px solid #bd9b50;
+    background-color: #ddcd91;
+    transform: rotateY(180deg);
+}
+
+#cover{
+    position: absolute;
+    z-index: 9999;
+}
+
+
+.cover .front{
+    background:url("bookCover.png");
+    background-size: cover;
+    border: none;
+}
+
+.cover .back{
+    border: none;
+}
+
+
+.cover .front h1{
+    font-size: 55px;
+    margin-top: 50px;
+    color:#bd9b50 ;
+    text-shadow: 1px 1px 1px #e2bd6d,
+                -1px -1px 1px #000 ;
+}
+
+
+.pages, #new-page{
+    position: absolute;
+    z-index: 1;
+    background-color: #000;
+}
+
+#last-page{
+    position: absolute;
+    z-index: 0;
+}
+
+
+
+.page.fliped{
+    transform: rotateY(-180deg);
+}
+
+#res-page{
+    padding-top: 20px;
+    text-align: start;
+    font-size: 20px;
+    width: 100%;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    letter-spacing: 1px;
+    word-spacing: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-word{
+    margin: 20px 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 40px;
+    border-radius: 2px;
+    border:none;
+    background-color: #bd9b50;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    outline: none;
+    font-size:20px;
+    color:#1e140d;
+    font-family: "IM Fell English SC", serif;
+}
+
+#error-btn{
+    margin: 50% 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    border:none;
+    background-color: #bd9b50;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    font-size:20px;
+    color:#1e140d;
+    cursor: pointer;
+}
+
+#error-btn:hover{
+    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+
+@media (max-width: 650px) {
+    .book{
+        height: 45%;
+        width: 55%;
+        margin: 0 20px;
+    }
+
+
+    .cover .front h1{
+        font-size: 35px;
+        margin-top: 40px;
+        color:#bd9b50 ;
+        text-shadow: 1px 1px 1px #e2bd6d,
+                    -1px -1px 1px #000 ;
+    }
+
+
+    #text-area{
+        margin: 0;
+        font-size: 14px;
+    }
+
+    audio{
+        width: 80%;
+        height: 30px;
+        margin: 10px 0;
+    }
+
+    .new-word{
+        height: 30px;
+        font-size: 18px;
+    }
+
+}
