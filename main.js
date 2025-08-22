@@ -54,6 +54,7 @@ async function getData(inputEl, resPageEl){
 }
 
 
+
 function bookAnimation(book){
     let index = 0;
     const flipPage = pageEl.length-2;
